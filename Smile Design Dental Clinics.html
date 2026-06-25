@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Design Dental Clinics | عيادات سمايل ديزاين لطب الأسنان</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1a1a2e;
+            overflow-x: hidden;
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+            filter: brightness(1.1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #6c63ff !important;
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-link:hover {
+            color: #6c63ff !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="glass" style="position: fixed; top: 0; width: 100%; z-index: 1000; height: 80px; display: flex; align-items: center; transition: all 0.3s ease;">
+        <div style="width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 35px; color: #6c63ff;">dentistry</span>
+                <span style="font-weight: 700; font-size: 22px; letter-spacing: -0.5px; color: #1a1a2e;">سمايل ديزاين</span>
+            </div>
+            
+            <nav style="display: flex; gap: 30px; align-items: center;">
+                <a href="#home" class="nav-link" style="text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 15px; transition: 0.3s;">الرئيسية</a>
+                <a href="#services" class="nav-link" style="text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 15px; transition: 0.3s;">خدماتنا</a>
+                <a href="#reviews" class="nav-link" style="text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 15px; transition: 0.3s;">التقييمات</a>
+                <a href="#contact" class="nav-link" style="text-decoration: none; color: #1a1a2e; font-weight: 600; font-size: 15px; transition: 0.3s;">اتصل بنا</a>
+            </nav>
+
+            <a href="tel:+966114624272" class="btn-hover" style="background: #6c63ff; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; transition: 0.3s;">
+                <span class="material-symbols-outlined" style="font-size: 18px;">call</span>
+                إتصل الآن
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" style="padding: 180px 0 100px 0; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+        <div style="width: 90%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center;">
+            <div class="animate-up">
+                <div style="display: inline-block; padding: 6px 16px; background: rgba(108, 99, 255, 0.1); color: #6c63ff; border-radius: 50px; font-weight: 700; font-size: 13px; margin-bottom: 20px;">
+                    أفضل عيادة أسنان في المملكة العربية السعودية
+                </div>
+                <h1 style="font-size: 52px; line-height: 1.2; font-weight: 800; color: #1a1a2e; margin-bottom: 25px;">
+                    ابتسامتك هي عنوان <span style="color: #6c63ff;">جمالك وتميزك</span>
+                </h1>
+                <p style="font-size: 18px; color: #555; margin-bottom: 40px; line-height: 1.8;">
+                    نحن في سمايل ديزاين نجمع بين الفن والعلم لنمنحك الابتسامة التي تحلم بها. باستخدام أحدث التقنيات العالمية وبإشراف نخبة من الاستشاريين، نضمن لك تجربة علاجية مريحة ونتائج مبهرة.
+                </p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#contact" class="btn-hover" style="background: #6c63ff; color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s;">احجز موعدك اليوم</a>
+                    <a href="#services" class="btn-hover" style="background: white; color: #1a1a2e; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; border: 1px solid #ddd; transition: 0.3s;">اكتشف خدماتنا</a>
+                </div>
+            </div>
+            <div class="animate-up" style="position: relative; animation-delay: 0.2s;">
+                <div style="position: absolute; top: -20px; right: -20px; width: 100%; height: 100%; border: 2px solid #6c63ff; border-radius: 30px; z-index: 1;"></div>
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000" alt="Dental Clinic" style="width: 100%; border-radius: 30px; position: relative; z-index: 2; object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
+                <div style="position: absolute; bottom: 30px; left: -30px; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); z-index: 3; display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #eef2ff; padding: 10px; border-radius: 12px;">
+                        <span class="material-symbols-outlined" style="color: #6c63ff; font-size: 30px;">verified</span>
+                    </div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 18px;">+15 عاماً</div>
+                        <div style="font-size: 13px; color: #666;">خبرة طبية متميزة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="padding: 100px 0; background: #ffffff;">
+        <div style="width: 90%; max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 70px;">
+                <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 15px;">خدماتنا التخصصية</h2>
+                <div style="width: 60px; height: 4px; background: #6c63ff; margin: 0 auto 20px auto; border-radius: 2px;"></div>
+                <p style="color: #666; font-size: 18px; max-width: 600px; margin: 0 auto;">نقدم حلولاً متكاملة لصحة وجمال أسنانك بأيدي خبراء متخصصين</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <!-- Service 1 -->
+                <div class="card-hover" style="background: #f8f9fa; padding: 50px 40px; border-radius: 24px; transition: 0.4s; border: 1px solid transparent;">
+                    <span class="material-symbols-outlined" style="font-size: 50px; color: #6c63ff; margin-bottom: 25px;">health_and_safety</span>
+                    <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 15px;">زراعة الأسنان</h3>
+                    <p style="color: #555; line-height: 1.7; font-size: 15px;">تعويض الأسنان المفقودة بأحدث التقنيات السويسرية والألمانية لضمان ديمومة وجمال طبيعي.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="card-hover" style="background: #f8f9fa; padding: 50px 40px; border-radius: 24px; transition: 0.4s; border: 1px solid transparent;">
+                    <span class="material-symbols-outlined" style="font-size: 50px; color: #6c63ff; margin-bottom: 25px;">auto_fix_high</span>
+                    <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 15px;">تجميل الابتسامة</h3>
+                    <p style="color: #555; line-height: 1.7; font-size: 15px;">ابتسامة هوليود، عدسات الفينير، وتبييض الأسنان بالليزر للحصول على مظهر مشرق وجذاب.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="card-hover" style="background: #f8f9fa; padding: 50px 40px; border-radius: 24px; transition: 0.4s; border: 1px solid transparent;">
+                    <span class="material-symbols-outlined" style="font-size: 50px; color: #6c63ff; margin-bottom: 25px;">align_items_stretch</span>
+                    <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 15px;">تقويم الأسنان</h3>
+                    <p style="color: #555; line-height: 1.7; font-size: 15px;">تقويم الأسنان الشفاف والعادي للأطفال والكبار لتصحيح اصطفاف الأسنان وتحسين الوظيفة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT & REVIEWS -->
+    <section id="reviews" style="padding: 100px 0; background: #f0f2f5;">
+        <div style="width: 90%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;">
+            <div>
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000" alt="Clinic Interior" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            </div>
+            <div>
+                <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 25px;">لماذا يثق بنا مرضانا؟</h2>
+                <div style="background: white; padding: 30px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; color: #ffc107;">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        </div>
+                        <span style="font-weight: 700; font-size: 24px;">4.7</span>
+                    </div>
+                    <p style="font-size: 17px; font-style: italic; color: #444; margin-bottom: 15px;">"تجربة رائعة جداً، الطاقم الطبي محترف للغاية والنتائج كانت مذهلة. أشعر بثقة أكبر بابتسامتي الآن."</p>
+                    <div style="font-weight: 700; color: #1a1a2e;">— سارة العتيبي، مراجعة سابقة</div>
+                </div>
+                <div style="display: flex; gap: 40px;">
+                    <div>
+                        <div style="font-size: 32px; font-weight: 800; color: #6c63ff;">+196</div>
+                        <div style="color: #666; font-weight: 600;">تقييم حقيقي</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 32px; font-weight: 800; color: #6c63ff;">10k</div>
+                        <div style="color: #666; font-weight: 600;">مريض سعيد</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 32px; font-weight: 800; color: #6c63ff;">24/7</div>
+                        <div style="color: #666; font-weight: 600;">دعم طوارئ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" style="padding: 100px 0;">
+        <div style="width: 90%; max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 50px;">احجز موعد استشارتك المجانية</h2>
+            <form style="background: white; padding: 50px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div style="text-align: right;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1a1a2e;">الاسم الكامل</label>
+                        <input type="text" placeholder="أدخل اسمك" style="width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid #ddd; font-size: 16px; transition: 0.3s;">
+                    </div>
+                    <div style="text-align: right;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1a1a2e;">رقم الجوال</label>
+                        <input type="tel" placeholder="+966 5x xxx xxxx" style="width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid #ddd; font-size: 16px; transition: 0.3s; direction: ltr;">
+                    </div>
+                </div>
+                <div style="margin-bottom: 20px; text-align: right;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1a1a2e;">الخدمة المطلوبة</label>
+                    <select style="width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid #ddd; font-size: 16px; transition: 0.3s; background: white;">
+                        <option>تجميل الأسنان</option>
+                        <option>زراعة الأسنان</option>
+                        <option>تقويم الأسنان</option>
+                        <option>تنظيف وفحص دوري</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 30px; text-align: right;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1a1a2e;">رسالة إضافية (اختياري)</label>
+                    <textarea rows="4" placeholder="كيف يمكننا مساعدتك؟" style="width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid #ddd; font-size: 16px; transition: 0.3s; resize: none;"></textarea>
+                </div>
+                <button type="submit" class="btn-hover" style="width: 100%; background: #6c63ff; color: white; padding: 18px; border-radius: 12px; border: none; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s;">إرسال الطلب</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background: #1a1a2e; color: white; padding: 80px 0 30px 0;">
+        <div style="width: 90%; max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
+                        <span class="material-symbols-outlined" style="font-size: 35px; color: #6c63ff;">dentistry</span>
+                        <span style="font-weight: 700; font-size: 24px;">سمايل ديزاين</span>
+                    </div>
+                    <p style="color: #a0a0b0; line-height: 1.8; margin-bottom: 25px;">نلتزم بتقديم أعلى مستويات الرعاية الصحية للأسنان في بيئة مريحة وآمنة باستخدام أحدث ما توصل إليه العلم.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">share</span>
+                        </div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">public</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: 18px; margin-bottom: 25px; font-weight: 700;">روابط سريعة</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: #a0a0b0; text-decoration: none; transition: 0.3s;">من نحن</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: #a0a0b0; text-decoration: none; transition: 0.3s;">الأطباء</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: #a0a0b0; text-decoration: none; transition: 0.3s;">الأسئلة الشائعة</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: #a0a0b0; text-decoration: none; transition: 0.3s;">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 18px; margin-bottom: 25px; font-weight: 700;">تواصل معنا</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 15px; display: flex; gap: 10px; color: #a0a0b0;">
+                            <span class="material-symbols-outlined" style="font-size: 20px; color: #6c63ff;">location_on</span>
+                            المملكة العربية السعودية، الرياض
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; gap: 10px; color: #a0a0b0;">
+                            <span class="material-symbols-outlined" style="font-size: 20px; color: #6c63ff;">call</span>
+                            +966 11 462 4272
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; gap: 10px; color: #a0a0b0;">
+                            <span class="material-symbols-outlined" style="font-size: 20px; color: #6c63ff;">mail</span>
+                            info@smiledesign.sa
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 18px; margin-bottom: 25px; font-weight: 700;">أوقات العمل</h4>
+                    <ul style="list-style: none; color: #a0a0b0;">
+                        <li style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                            <span>السبت - الخميس:</span>
+                            <span style="color: white;">9ص - 10م</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                            <span>الجمعة:</span>
+                            <span style="color: #6c63ff;">مغلق</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; text-align: center; color: #666; font-size: 14px;">
+                &copy; 2024 عيادات سمايل ديزاين. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
