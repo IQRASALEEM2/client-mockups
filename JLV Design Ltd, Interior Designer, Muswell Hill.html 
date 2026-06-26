@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JLV Design Ltd - Premier Interior Designer in Muswell Hill, London. Specialized in residential and commercial luxury interiors.">
+    <title>JLV Design Ltd | Interior Designer | Muswell Hill, London</title>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primary: #2D6A4F;
+            --color-secondary: #40916C;
+            --color-accent: #95D5B2;
+            --color-bg: #F8FFF9;
+            --color-surface: #D8F3DC;
+            --color-text: #1B3A2D;
+            --color-text-muted: #4A7A5A;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; overflow-x: hidden; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 100px 0; overflow: hidden; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 15px; }
+        .section-title p { color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+
+        /* Header */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(24px); background: rgba(248, 255, 249, 0.92); border-bottom: 1px solid rgba(45, 106, 79, 0.12); transition: var(--transition); }
+        header.header-scrolled { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .nav-container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-text { font-weight: 800; color: var(--color-primary); font-size: 1.3rem; letter-spacing: -0.5px; }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-link { text-decoration: none; color: var(--color-text); font-weight: 500; font-size: 0.95rem; transition: var(--transition); position: relative; }
+        .nav-link:hover, .nav-link.active { color: var(--color-primary); }
+        .nav-link.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--color-primary); border-radius: 2px; }
+
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-call { background: var(--color-primary); color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: var(--transition); display: flex; align-items: center; gap: 8px; }
+        .btn-call:hover { background: var(--color-secondary); transform: scale(1.05); }
+
+        .goog-te-combo { font-size: 12px!important; border: 1.5px solid var(--color-primary)!important; border-radius: 20px!important; padding: 4px 10px!important; background: transparent!important; color: var(--color-text)!important; cursor: pointer!important; outline: none!important; }
+
+        #hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--color-primary); }
+        .mobile-menu { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: var(--color-bg); padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+
+        /* Hero */
+        .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd8?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat; color: white; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(45, 106, 79, 0.88), rgba(64, 145, 108, 0.72)); }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; padding: 0 20px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out; }
+        .hero p { font-size: clamp(1.1rem, 3vw, 1.6rem); opacity: 0.9; margin-bottom: 40px; animation: fadeInUp 0.8s ease-out 0.2s backwards; }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; animation: fadeInUp 0.8s ease-out 0.4s backwards; }
+        .btn-primary { background: white; color: var(--color-primary); padding: 16px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: var(--transition); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-outline { border: 2px solid white; color: white; padding: 14px 33px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: var(--transition); }
+        .btn-outline:hover { background: white; color: var(--color-primary); }
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; cursor: pointer; }
+
+        /* Services */
+        .services { background: var(--color-surface); }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-card { background: var(--color-bg); padding: 40px; border-radius: 24px; transition: var(--transition); border: 1px solid transparent; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--color-primary); box-shadow: 0 20px 40px rgba(45, 106, 79, 0.1); }
+        .service-icon { color: var(--color-primary); font-size: 56px; margin-bottom: 25px; display: block; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--color-primary); }
+        .service-card p { color: var(--color-text-muted); margin-bottom: 20px; font-size: 0.95rem; }
+        .service-link { color: var(--color-primary); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; }
+
+        /* About */
+        .about-container { display: flex; align-items: center; gap: 60px; }
+        .about-image { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .about-image img { width: 100%; display: block; }
+        .about-content { flex: 1; }
+        .badge { display: inline-block; padding: 6px 16px; background: var(--color-surface); color: var(--color-primary); border-radius: 50px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px; }
+        .about-content h2 { font-size: 2.5rem; color: var(--color-primary); margin-bottom: 25px; }
+        .about-content p { margin-bottom: 20px; color: var(--color-text-muted); }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+        .stat-item { background: var(--color-surface); padding: 25px; border-radius: 16px; text-align: center; }
+        .stat-number { display: block; font-size: 2.2rem; font-weight: 800; color: var(--color-primary); }
+        .stat-label { font-size: 0.9rem; color: var(--color-text-muted); font-weight: 600; }
+
+        /* Slider Controls */
+        .slider-controls { display: flex; justify-content: center; gap: 20px; margin-top: 40px; }
+        .slider-btn { width: 50px; height: 50px; border-radius: 50%; border: 1.5px solid var(--color-primary); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-primary); transition: var(--transition); }
+        .slider-btn:hover { background: var(--color-primary); color: white; }
+        .dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-accent); cursor: pointer; transition: var(--transition); }
+        .dot.active { width: 30px; border-radius: 10px; background: var(--color-primary); }
+
+        /* Reviews Slider */
+        .reviews { background: var(--color-surface); }
+        .reviews-wrapper { overflow: hidden; position: relative; margin: 0 -14px; }
+        .reviews-track { display: flex; transition: transform 0.5s ease; gap: 28px; }
+        .review-card { min-width: calc(33.333% - 19px); background: var(--color-bg); padding: 40px; border-radius: 24px; flex-shrink: 0; }
+        .reviewer-info { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .reviewer-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
+        .reviewer-meta h4 { font-size: 1.1rem; color: var(--color-primary); }
+        .stars { color: #FFB300; font-size: 1rem; }
+        .review-text { font-style: italic; color: var(--color-text-muted); margin-bottom: 15px; }
+
+        /* Portfolio */
+        .portfolio-wrapper { overflow: hidden; position: relative; margin: 0 -14px; }
+        .portfolio-track { display: flex; transition: transform 0.5s ease; gap: 28px; }
+        .portfolio-card { min-width: calc(33.333% - 19px); height: 400px; border-radius: 24px; position: relative; overflow: hidden; flex-shrink: 0; }
+        .portfolio-card img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .portfolio-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(45, 106, 79, 0.9); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; opacity: 0; transition: var(--transition); }
+        .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-card:hover img { transform: scale(1.1); }
+        .portfolio-overlay h4 { color: white; font-size: 1.5rem; margin-bottom: 5px; }
+        .category-pill { background: rgba(255,255,255,0.2); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; width: fit-content; border: 1px solid rgba(255,255,255,0.3); }
+
+        /* Why Choose Us */
+        .why-us { background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; }
+        .why-us-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+        .why-us-item span { font-size: 48px; margin-bottom: 20px; display: block; opacity: 0.9; }
+        .why-us-item h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .why-us-item p { font-size: 0.95rem; opacity: 0.8; }
+
+        /* Contact */
+        .contact { background: var(--color-surface); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+        .contact-info { display: flex; flex-direction: column; gap: 30px; }
+        .info-item { display: flex; gap: 20px; }
+        .info-icon { width: 50px; height: 50px; border-radius: 12px; background: var(--color-bg); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+        .info-content h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .info-content p { color: var(--color-text-muted); font-size: 0.95rem; }
+        
+        .map-placeholder { width: 100%; height: 300px; border: 2px dashed var(--color-primary); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-top: 30px; background: var(--color-bg); color: var(--color-primary); text-decoration: none; font-weight: 600; transition: var(--transition); }
+        .map-placeholder:hover { background: var(--color-primary); color: white; }
+
+        .contact-form { background: var(--color-bg); padding: 40px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 12px 20px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; font-family: inherit; transition: var(--transition); }
+        .form-control:focus { border-color: var(--color-primary); outline: none; box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1); background: white; }
+        .btn-submit { width: 100%; background: var(--color-primary); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: var(--transition); }
+        .btn-submit:hover { background: var(--color-secondary); transform: translateY(-3px); }
+
+        /* Footer */
+        footer { background: #0D0D1A; color: white; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 50px; margin-bottom: 50px; }
+        .footer-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 20px; }
+        .footer-logo span { color: white; font-weight: 800; font-size: 1.5rem; }
+        .footer-desc { color: #9CA3AF; font-size: 0.95rem; margin-bottom: 25px; }
+        .social-links { display: flex; gap: 15px; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: var(--transition); }
+        .social-icon:hover { background: var(--color-primary); transform: translateY(-5px); }
+        .footer-links h4 { font-size: 1.2rem; margin-bottom: 25px; position: relative; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #9CA3AF; text-decoration: none; transition: var(--transition); font-size: 0.95rem; }
+        .footer-links a:hover { color: white; padding-left: 5px; }
+        .footer-contact li { display: flex; gap: 12px; color: #9CA3AF; margin-bottom: 15px; font-size: 0.95rem; }
+        .footer-contact span { color: var(--color-primary); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; color: #6B7280; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .review-card, .portfolio-card { min-width: calc(50% - 14px); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            #hamburger { display: block; }
+            .nav-links, .header-actions .btn-call { display: none; }
+            .mobile-menu { display: block; }
+            .hero h1 { font-size: 3rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-container { flex-direction: column; }
+            .review-card, .portfolio-card { min-width: 100%; }
+            .why-us-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-container { height: 70px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="#" class="logo-wrapper">
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--color-primary)" />
+                                <stop offset="100%" style="stop-color:var(--color-secondary)" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="48" height="48" rx="12" fill="url(#logoGrad)" />
+                        <text x="50%" y="55%" text-anchor="middle" fill="white" font-weight="800" font-size="18" dy=".3em">JL</text>
+                    </svg>
+                    <span class="logo-text">JLV Design Ltd</span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                    <a href="#reviews" class="nav-link">Reviews</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <div class="header-actions">
+                    <div id="google_translate_element"></div>
+                    <a href="tel:+447964164799" class="btn-call">
+                        <span class="material-symbols-outlined">call</span>
+                        +44 7964 164799
+                    </a>
+                    <div id="hamburger">☰</div>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="tel:+447964164799" class="btn-call" style="justify-content: center;">Call Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Curating Spaces That Inspire Living</h1>
+            <p>Luxury Interior Design services in Muswell Hill and across London, blending timeless elegance with modern functionality.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">Book Consultation</a>
+                <a href="#portfolio" class="btn-outline">View Projects</a>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('services').scrollIntoView()">
+            <span class="material-symbols-outlined" style="font-size: 40px;">expand_more</span>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Bespoke Services</h2>
+                <p>Tailored interior solutions designed to reflect your unique personality and lifestyle requirements.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <span class="material-symbols-outlined service-icon">architecture</span>
+                    <h3>Space Planning</h3>
+                    <p>Optimizing layouts to maximize flow and utility, ensuring every square foot serves a meaningful purpose.</p>
+                    <a href="#contact" class="service-link">Inquire Now <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span></a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="material-symbols-outlined service-icon">home</span>
+                    <h3>Residential Design</h3>
+                    <p>From cozy Muswell Hill apartments to sprawling London estates, we create sanctuaries you'll love.</p>
+                    <a href="#contact" class="service-link">Inquire Now <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span></a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="material-symbols-outlined service-icon">business_center</span>
+                    <h3>Commercial Office</h3>
+                    <p>Inspiring workplace environments that boost productivity and reflect your corporate brand identity.</p>
+                    <a href="#contact" class="service-link">Inquire Now <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span></a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="material-symbols-outlined service-icon">palette</span>
+                    <h3>Color Consultation</h3>
+                    <p>Expert guidance on palettes that evoke the right emotions and harmonize your entire living space.</p>
+                    <a href="#contact" class="service-link">Inquire Now <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span></a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="material-symbols-outlined service-icon">chair_alt</span>
+                    <h3>Bespoke Furniture</h3>
+                    <p>Sourcing and designing custom furniture pieces that fit perfectly into your aesthetic and spatial constraints.</p>
+                    <a href="#contact" class="service-link">Inquire Now <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span></a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="material-symbols-outlined service-icon">lightbulb</span>
+                    <h3>Lighting Design</h3>
+                    <p>Layered lighting schemes that enhance atmosphere, highlight architecture, and improve functionality.</p>
+                    <a href="#contact" class="service-link">Inquire Now <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image reveal">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&auto=format&fit=crop" alt="Interior Design Studio">
+                </div>
+                <div class="about-content reveal">
+                    <span class="badge">Since 2012</span>
+                    <h2>Elegance is in the details</h2>
+                    <p>JLV Design Ltd is an award-winning interior design practice based in the heart of Muswell Hill. Led by a passion for sustainability and craftsmanship, we believe that a well-designed home is the foundation for a better life.</p>
+                    <p>Our approach is collaborative. We listen to your stories, understand your habits, and translate them into visual narratives. Whether it's a Victorian restoration or a contemporary new build, we bring precision and artistry to every project.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="12">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="250">0</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="15">0</span>
+                            <span class="stat-label">Awards Won</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="100">0</span>
+                            <span class="stat-label">Happy Clients %</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Portfolio</h2>
+                <p>A glimpse into the diverse range of luxury spaces we've transformed across London.</p>
+            </div>
+            <div class="portfolio-wrapper reveal">
+                <div class="portfolio-track" id="portfolioTrack">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1618220231602-da47b85429d0?w=600&h=420&fit=crop" alt="Luxe Penthouse" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="category-pill">Residential</span>
+                            <h4>The Regent Penthouse</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1617103996593-92f394b23917?w=600&h=420&fit=crop" alt="Modern Kitchen" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="category-pill">Bespoke Kitchen</span>
+                            <h4>Highgate Culinary Hub</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1594071859439-013df4cc1c00?w=600&h=420&fit=crop" alt="Office Space" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="category-pill">Commercial</span>
+                            <h4>Soho Creative Studio</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e1233d41f27?w=600&h=420&fit=crop" alt="Minimalist Bedroom" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="category-pill">Bedroom</span>
+                            <h4>Minimalist Sanctuary</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1556912177-d5a0a1f67f41?w=600&h=420&fit=crop" alt="Living Room" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="category-pill">Living Area</span>
+                            <h4>Victorian Revival</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1583847268964-b1552c61c434?w=600&h=420&fit=crop" alt="Luxury Bathroom" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="category-pill">Bathroom</span>
+                            <h4>Marble Oasis</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls reveal">
+                <div class="slider-btn" id="portfolioPrev"><span class="material-symbols-outlined">arrow_back</span></div>
+                <div class="dots" id="portfolioDots">
+                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <div class="slider-btn" id="portfolioNext"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us reveal">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <span class="material-symbols-outlined">verified</span>
+                    <h3>Certified Excellence</h3>
+                    <p>RIBA and BIID accredited design professionals.</p>
+                </div>
+                <div class="why-us-item">
+                    <span class="material-symbols-outlined">eco</span>
+                    <h3>Sustainable Focus</h3>
+                    <p>Prioritizing eco-friendly materials and ethical sourcing.</p>
+                </div>
+                <div class="why-us-item">
+                    <span class="material-symbols-outlined">schedule</span>
+                    <h3>Timely Delivery</h3>
+                    <p>Rigorous project management to meet every deadline.</p>
+                </div>
+                <div class="why-us-item">
+                    <span class="material-symbols-outlined">diamond</span>
+                    <h3>Premium Quality</h3>
+                    <p>Access to exclusive trade-only suppliers and artisans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Client Testimonials</h2>
+                <div style="margin-bottom: 10px; color: #FFB300;">
+                    ★★★★★ <span style="color: var(--color-text); font-weight: 700;">4.9 / 5.0</span>
+                </div>
+                <p>What our clients in Muswell Hill and beyond have to say about their design journey with us.</p>
+            </div>
+            <div class="reviews-wrapper reveal">
+                <div class="reviews-track" id="reviewsTrack">
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">JT</div>
+                            <div class="reviewer-meta">
+                                <h4>James Thompson</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"JLV Design completely transformed our Victorian home. They balanced modern needs with period features perfectly."</p>
+                        <small>October 2023</small>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SJ</div>
+                            <div class="reviewer-meta">
+                                <h4>Sarah Jenkins</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"The attention to detail is remarkable. Our office space is now a place where everyone actually wants to work!"</p>
+                        <small>August 2023</small>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">DW</div>
+                            <div class="reviewer-meta">
+                                <h4>David Wilson</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Exceptional communication throughout. They stayed on budget while delivering a luxury finish beyond our expectations."</p>
+                        <small>December 2023</small>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">ER</div>
+                            <div class="reviewer-meta">
+                                <h4>Emily Richards</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Their color consultation changed everything. Our living room feels so much more inviting and cohesive now."</p>
+                        <small>January 2024</small>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">MB</div>
+                            <div class="reviewer-meta">
+                                <h4>Michael Brown</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Professional, creative, and highly organized. I would recommend JLV Design to anyone looking for a premium touch."</p>
+                        <small>February 2024</small>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls reveal">
+                <div class="slider-btn" id="reviewsPrev"><span class="material-symbols-outlined">arrow_back</span></div>
+                <div class="dots" id="reviewsDots">
+                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <div class="slider-btn" id="reviewsNext"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Let's Start Your Project</h2>
+                <p>Ready to transform your space? Contact us today for a free initial consultation.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="info-item">
+                        <div class="info-icon"><span class="material-symbols-outlined">location_on</span></div>
+                        <div class="info-content">
+                            <h4>Visit Our Studio</h4>
+                            <p>17 Marriott Rd, Muswell Hill, London N10 1JJ, United Kingdom</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><span class="material-symbols-outlined">call</span></div>
+                        <div class="info-content">
+                            <h4>Call Us</h4>
+                            <p>+44 7964 164799</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><span class="material-symbols-outlined">mail</span></div>
+                        <div class="info-content">
+                            <h4>Email Us</h4>
+                            <p>hello@jlvdesign.co.uk</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><span class="material-symbols-outlined">schedule</span></div>
+                        <div class="info-content">
+                            <h4>Studio Hours</h4>
+                            <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=17+Marriott+Rd+Muswell+Hill+London" target="_blank" class="map-placeholder">
+                        <span class="material-symbols-outlined" style="margin-right: 10px;">map</span> View on Google Maps
+                    </a>
+                </div>
+                <div class="contact-form reveal">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="+44 123 456 789" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Interested In</label>
+                            <select class="form-control">
+                                <option>Residential Design</option>
+                                <option>Commercial Office Design</option>
+                                <option>Space Planning</option>
+                                <option>Color Consultation</option>
+                                <option>Bespoke Furniture</option>
+                                <option>Full Home Renovation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 48 48">
+                            <rect width="48" height="48" rx="12" fill="var(--color-primary)" />
+                            <text x="50%" y="55%" text-anchor="middle" fill="white" font-weight="800" font-size="18" dy=".3em">JL</text>
+                        </svg>
+                        <span>JLV Design Ltd</span>
+                    </a>
+                    <p class="footer-desc">Award-winning interior designers based in Muswell Hill, London. Creating timeless, luxury spaces since 2012.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">𝕏</a>
+                        <a href="#" class="social-icon">in</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Space Planning</a></li>
+                        <li><a href="#">Furniture Sourcing</a></li>
+                        <li><a href="#">Lighting Schemes</a></li>
+                        <li><a href="#">Renovation</a></li>
+                        <li><a href="#">Home Staging</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><span class="material-symbols-outlined">location_on</span> 17 Marriott Rd, Muswell Hill, London N10 1JJ</li>
+                        <li><span class="material-symbols-outlined">call</span> +44 7964 164799</li>
+                        <li><span class="material-symbols-outlined">mail</span> hello@jlvdesign.co.uk</li>
+                        <li><span class="material-symbols-outlined">schedule</span> Mon - Fri: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 JLV Design Ltd. All Rights Reserved. Built with ❤️ for Muswell Hill.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Google Translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ar,es,fr,de,ur,hi,tr,ru,pt,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            document.querySelector('header').classList.toggle('header-scrolled', window.scrollY > 60);
+        });
+
+        // Reveal on scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Counter animation
+        function animateCounter(el) {
+            const target = +el.dataset.target;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            const id = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    el.textContent = target + (el.dataset.target === "100" ? "%" : "+");
+                    clearInterval(id);
+                } else {
+                    el.textContent = Math.floor(current) + "+";
+                }
+            }, 16);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.stats-grid').forEach(el => statsObserver.observe(el));
+
+        // Hamburger menu
+        const hb = document.getElementById('hamburger'), mm = document.getElementById('mobileMenu');
+        hb.addEventListener('click', () => {
+            const isOpen = mm.style.maxHeight && mm.style.maxHeight !== '0px';
+            mm.style.maxHeight = isOpen ? '0px' : '500px';
+            hb.textContent = isOpen ? '☰' : '✕';
+        });
+
+        // Sliders Logic
+        function setupSlider(trackId, prevId, nextId, dotContainerId, totalCards) {
+            const track = document.getElementById(trackId);
+            const prev = document.getElementById(prevId);
+            const next = document.getElementById(nextId);
+            const dotContainer = document.getElementById(dotContainerId);
+            let current = 0;
+
+            const getVisibleCards = () => window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+
+            const updateSlider = () => {
+                const vis = getVisibleCards();
+                const max = totalCards - vis;
+                current = Math.max(0, Math.min(current, max));
+                const card = track.children[0];
+                const width = card.offsetWidth + 28;
+                track.style.transform = `translateX(-${current * width}px)`;
+                
+                // Update dots
+                const dots = dotContainer.querySelectorAll('.dot');
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            };
+
+            prev.addEventListener('click', () => { current--; updateSlider(); });
+            next.addEventListener('click', () => { current++; updateSlider(); });
+            
+            // Auto-advance reviews only
+            if(trackId === 'reviewsTrack') {
+                setInterval(() => {
+                    current = (current + 1) > (totalCards - getVisibleCards()) ? 0 : current + 1;
+                    updateSlider();
+                }, 5000);
+            }
+
+            window.addEventListener('resize', updateSlider);
+        }
+
+        setupSlider('reviewsTrack', 'reviewsPrev', 'reviewsNext', 'reviewsDots', 5);
+        setupSlider('portfolioTrack', 'portfolioPrev', 'portfolioNext', 'portfolioDots', 6);
+
+        // Smooth scroll and active nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    mm.style.maxHeight = '0px';
+                    hb.textContent = '☰';
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const sy = window.scrollY + 100;
+            document.querySelectorAll('section[id]').forEach(s => {
+                const link = document.querySelector(`.nav-link[href="#${s.id}"]`);
+                if (link) {
+                    const active = sy >= s.offsetTop && sy < s.offsetTop + s.offsetHeight;
+                    link.classList.toggle('active', active);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
